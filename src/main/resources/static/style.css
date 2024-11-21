@@ -1,0 +1,99 @@
+.shiki {
+  border-radius: 4px;
+}
+.shiki > code {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  min-width: 100%;
+}
+
+
+.shiki .highlighted { background-color: rgba(101, 117, 133, .16); margin: 0 -24px; padding: 0 24px; width: calc(100% - 10px); display: inline-block;}
+
+.shiki .highlighted.warning { background-color: rgba(234, 179, 8, .16); }
+.shiki .highlighted.error { background-color: rgba(244, 63, 94, .16); }
+
+.shiki .highlighted-word {
+  background-color: #f0f0f0;
+  border-color: #b3b3b3;
+  padding: 1px 3px;
+  margin: -1px -3px;
+  border-radius: 4px;
+}
+.dark .shiki .highlighted-word {
+  background-color: #202127;
+  border: 1px solid #3c3f44;
+}
+
+
+.shiki .diff {
+  transition: background-color .5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% - 10px);
+  display: inline-block;
+}
+.shiki .diff::before {
+  margin-left: -9px;
+}
+
+.shiki .diff.remove::before {
+  content: "-";
+  color: rgb(149, 90, 91);
+}
+.dark .shiki .diff.remove::before {
+  color: rgb(200,129,132);
+}
+.shiki .diff.remove {
+  background-color: rgba(244, 63, 94, .16);
+  opacity: .7;
+}
+
+.shiki .diff.add::before {
+  content: "+";
+  color: rgb(61,214,140);
+}
+.dark .shiki .diff.add::before {
+  color: rgb( 24,121, 78);
+}
+.shiki .diff.add {
+  background-color: rgba(16, 185, 129, .16);
+}
+
+
+.has-focused .line:not(.focused) {
+  opacity: .7;
+  transition: filter .35s, opacity .35s;
+  filter: blur(.095rem);
+}
+.has-focused .line:not(.focused):hover {
+  opacity: 1;
+  transition: filter .35s, opacity .35s;
+  filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .color-scheme-auto .shiki,
+  .color-scheme-auto .shiki span {
+    color: var(--shiki-dark) !important;
+  }
+}
+
+.dark .shiki,
+.dark .shiki span,
+.color-scheme-dark .shiki,
+.color-scheme-dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .color-scheme-auto .shiki {
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+.color-scheme-dark .shiki,
+.dark .shiki {
+  background-color: var(--shiki-dark-bg) !important;
+}
